@@ -1,0 +1,18 @@
+<nav class="bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20">
+        <div class="flex">
+          <!-- Logo or Name in the middle -->
+          <div class="flex-shrink-0 flex items-center">
+            <span class="text-black text-lg font-semibold">Welcome</span>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <!-- Logout Button -->
+          <a routerLink="/profile" class="text-black hover:bg-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium">profile</a>
+          <button class="text-black hover:bg-gray-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

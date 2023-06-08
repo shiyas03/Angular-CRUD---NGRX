@@ -1,0 +1,29 @@
+<div class="container mx-auto py-10">
+    <div class="flex flex-col items-center justify-center">
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="flex flex-row items-center">
+                    <div *ngIf="(profile$ | async) as profileData">
+                        <div class="flex flex-col" *ngFor="let data of profileData">
+                            <label for="imageInput" class="cursor-pointer flex items-center">
+                                <div class="w-40 h-40 rounded-full mr-4">
+                                    <img id="profileImage"
+                                        src="https://static.vecteezy.com/system/resources/previews/020/213/738/original/add-profile-picture-icon-upload-photo-of-social-media-user-vector.jpg"
+                                        class="w-full h-full rounded-full" *ngIf="!isImage">
+                                    <img *ngIf="isImage" [src]="'http://localhost:3000/' + image$" alt="">
+                                </div>
+                                <input id="imageInput" type="file" class="hidden" (change)="onFileSelected($event)">
+                                <button
+                                    class="text-white bg-red-500 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    (click)="removeImage()" *ngIf="isImage">Remove</button>
+                            </label>
+
+                            <h1 class="text-xl font-semibold mb-2">{{data.name}}</h1>
+                            <p class="text-l text-gray-500 font-semibold">{{data.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

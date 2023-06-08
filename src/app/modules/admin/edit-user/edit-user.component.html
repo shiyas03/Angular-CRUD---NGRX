@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="relative flex text-gray-800 antialiased flex-col justify-center overflow-hidden py-6 sm:py-12">
+    <div class="relative py-3 sm:w-96 mx-auto text-center">
+      <span class="text-2xl font-light ">Edit user</span>
+      <div class="mt-4 bg-white shadow-md rounded-lg text-left">
+        <div class="px-8 py-6 ">
+          <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+            <label class="block font-semibold">User Name</label>
+            <input type="text" placeholder="Name" formControlName="name"
+              class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" [(ngModel)]="name">
+            <div *ngIf="newUserForm.controls['name'].errors">
+              <p *ngIf="submit&&newUserForm.controls.name.hasError('required')" class="text-red-500">Name Required</p>
+            </div>
+            <label class="block font-semibold">Email </label>
+            <input type="text" placeholder="Email" formControlName="email"
+              class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" [(ngModel)]="email">
+            <div *ngIf="newUserForm.controls['email'].errors">
+              <p *ngIf="submit&&newUserForm.controls.email.hasError('required')" class="text-red-500">Email Required
+              <p>
+              <p *ngIf="newUserForm.controls.email.hasError('email')" class="text-red-500">Invalid Email Format
+              <p>
+            </div>
+            <p class="text-red-500">{{emailUsed}}</p>
+            <div class="flex justify-between items-baseline">
+              <button type="submit"
+                class="mt-4 bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-700">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
